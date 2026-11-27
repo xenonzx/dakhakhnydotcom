@@ -3,22 +3,37 @@ import experiences from "../collections/experiences.json";
 import AboutExperience from "../components/about-experience.astro";
 import PageHeading from "../components/page-heading.astro";
 import Layout from "../layouts/main.astro";
+import { SITE } from "../site";
+
+const paragraph =
+  "text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg";
+const link = "text-indigo-600 underline";
 ---
 
-<Layout title="About Me">
+<Layout title="About">
   <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
     <PageHeading
-      title="About Me"
-      description="Hello 👋 I'm a frontend engineer from Nanjing, China. I'm passionate about building new products and learning new technology."
+      title="About"
+      description="Hello 👋 I'm Ahmed, a mobile engineer based in Alexandria, Egypt."
     />
 
-    <img src="/assets/images/about.jpg" class="relative z-30 w-full my-10 rounded-xl" />
-
-    <h2 class="mb-2 text-2xl font-bold dark:text-neutral-200">Short Bio</h2>
-    <p
-      class="text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg"
-    >
-      Front-end cutter 🧑🏻‍💻, back-end amateur 🤷🏻‍♂️, operations digging holes person 🤦🏻‍♂️.
+    <h2 class="mt-10 mb-2 text-2xl font-bold dark:text-neutral-200">Short Bio</h2>
+    <p class={paragraph}>
+      I've been building mobile apps for more than ten years, mostly on
+      Android, with iOS, Flutter and React Native along the way. At XonTel I
+      worked on the Android apps for Monitor, a wall-mounted tablet product,
+      and I now work in React Native with Expo.
+    </p>
+    <p class={`${paragraph} mt-4`}>
+      Before XonTel I was a senior mobile engineer at Blink22, where I also did
+      full-stack work in Java/Spring and Angular. Earlier I co-founded Hafezah
+      in Riyadh as its tech lead, and built Android and iOS apps at BadrIT.
+    </p>
+    <p class={`${paragraph} mt-4`}>
+      Lately I've been going deep into mobile app security. I've pentested a
+      production app at work, and I'm working through HexTree's Android
+      security training: dynamic instrumentation with Frida, network
+      interception and reverse engineering.
     </p>
 
     <h2
@@ -45,16 +60,20 @@ import Layout from "../layouts/main.astro";
     </div>
 
     <h2 class="mt-5 mb-2 text-2xl font-bold lg:mt-10 sm:mt-6 dark:text-neutral-200">Let's Connect</h2>
-    <p
-      class="text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg"
-    >
-      If you want to stay up to date with my work be sure to <a
-        href="https://x.com/0xKaibi"
-        target="_blank"
-        class="text-indigo-600 underline">follow me on twitter</a
-      >, or you can send me an <a href="mailto:astro-aria#miantiao.me" class="text-indigo-600 underline"
-        >email</a
-      > and I'll be sure to get back to you.
+    <p class={paragraph}>
+      The best way to reach me is on <a href={SITE.linkedin} target="_blank" class={link}>LinkedIn</a>.
+      You can also find my code on <a href={SITE.github} target="_blank" class={link}>GitHub</a>{
+        SITE.email ? (
+          <Fragment>, or send me an <a href={`mailto:${SITE.email}`} class={link}>email</a></Fragment>
+        ) : null
+      }.
+      {
+        SITE.cvPdf && (
+          <Fragment>
+            {" "}My CV is available <a href={SITE.cvPdf} class={link}>as a PDF</a>.
+          </Fragment>
+        )
+      }
     </p>
   </section>
 </Layout>
