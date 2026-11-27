@@ -1,5 +1,6 @@
 ---
 import Logo from "../components/logo.astro";
+import { SITE } from "../site";
 ---
 
 <section
@@ -12,7 +13,7 @@ import Logo from "../components/logo.astro";
     <p
       class="mt-4 text-sm text-neutral-700 dark:text-neutral-100 sm:ml-4 sm:pl-4 sm:border-l sm:border-neutral-300 dark:sm:border-neutral-700 sm:mt-0"
     >
-      © {new Date().getFullYear()} Aria
+      © {new Date().getFullYear()} {SITE.name}
     </p>
     <span
       class="inline-flex items-center justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start"
@@ -20,7 +21,7 @@ import Logo from "../components/logo.astro";
 
 
       <a
-        href="https://github.com/xenonzx"
+        href={SITE.github}
         target="_blank"
         class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
       >
@@ -38,7 +39,7 @@ import Logo from "../components/logo.astro";
       </a>
 
       <a
-        href="https://www.linkedin.com/in/eldakhakhny/"
+        href={SITE.linkedin}
         target="_blank"
         class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
       >
