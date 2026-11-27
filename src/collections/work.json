@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Monitor",
+		"meta": "XonTel · Android",
+		"description": "Android apps for a wall-mounted tablet: live video from IP cameras over RTSP/ONVIF, a custom wrapper library around VLC, native libraries for smooth playback, and support for Hikvision and Dahua cameras.",
+		"tags": ["Android", "RTSP / ONVIF", "VLC", "Native libraries"]
+	},
+	{
+		"name": "Mobile app security testing",
+		"meta": "XonTel · Android",
+		"description": "Pentested a production social app: intercepted its traffic, de-obfuscated the client and reviewed its certificate pinning. Now training with HexTree in Frida instrumentation, network interception and reverse engineering.",
+		"tags": ["MITM", "Frida", "Reverse engineering"]
+	},
+	{
+		"name": "Cashbook by Khatabook",
+		"meta": "Blink22 · Android",
+		"description": "A bookkeeping app for small businesses. Analytics, A/B tests and feature flags for the product team; features such as a GST calculator, full-text search and payment reminders; localization and release management.",
+		"tags": ["Android", "A/B testing", "Feature flags", "Analytics"]
+	},
+	{
+		"name": "Daif",
+		"meta": "BadrIT · Android",
+		"description": "Co-led the Android client of Daif, a crowd-management platform used during Hajj to schedule and track buses in real time.",
+		"tags": ["Android", "Real-time tracking"]
+	}
+]

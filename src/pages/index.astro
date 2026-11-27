@@ -1,5 +1,7 @@
 ---
 import Button from "../components/button.astro";
+import SelectedWork from "../components/home/selected-work.astro";
+import Separator from "../components/home/separator.astro";
 import Layout from "../layouts/main.astro";
 import { SITE } from "../site";
 ---
@@ -53,4 +55,7 @@ import { SITE } from "../site";
       </div>
     </div>
   </div>
+
+  <Separator text="Selected work" />
+  <SelectedWork />
 </Layout>
