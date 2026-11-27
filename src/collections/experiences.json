@@ -1,23 +1,32 @@
 [
 	{
-		"dates": "June 2018 · Present",
-		"role": "Front-end Engineer",
-		"company": "Full Truck Alliance",
-		"description": "Responsible for customer service and CRM system front-end development.",
-		"logo": "/assets/images/experiences/fta.ico"
+		"dates": "October 2024 · Present",
+		"role": "Android Software Engineer",
+		"company": "XonTel",
+		"description": "Android apps for Monitor, a wall-mounted tablet product: live video from IP cameras over RTSP/ONVIF, camera integrations and native libraries. Now also React Native with Expo."
 	},
 	{
-		"dates": "July 2015 · June 2018",
-		"role": "Front-end Engineer",
-		"company": "YOHO!",
-		"description": "Responsible for mobile front-end development of e-commerce platform.",
-		"logo": "/assets/images/experiences/yoho.ico"
+		"dates": "January 2021 · April 2024",
+		"role": "Senior Mobile Engineer",
+		"company": "Blink22",
+		"description": "Android apps for clients including Cashbook by Khatabook and CashKateb, payment integrations for JumiaPay, and full-stack work (Java/Spring, Angular) on SoftLab."
 	},
 	{
-		"dates": "September 2014 · July 2015 ",
-		"role": "Node.JS Developer",
-		"company": "WuLian",
-		"description": "Intern, involved in the development of Internet of Things cloud systems.",
-		"logo": "/assets/images/experiences/wulian.ico"
+		"dates": "August 2020 · November 2020",
+		"role": "Android Team Lead",
+		"company": "Amaz Egypt",
+		"description": "Led the Android architecture, and set up CI/CD and a code review process for the team."
+	},
+	{
+		"dates": "January 2019 · August 2020",
+		"role": "Co-Founder & Tech Lead",
+		"company": "Hafezah, Riyadh",
+		"description": "Set the product roadmap, delivered the MVP, and led a Node.js backend and a Flutter marketplace app."
+	},
+	{
+		"dates": "February 2016 · December 2018",
+		"role": "Mobile Software Engineer",
+		"company": "BadrIT",
+		"description": "Android and iOS apps, including Daif (Hajj crowd management), Graphmented (AR data visualization on iOS) and Qmotor."
 	}
 ]
