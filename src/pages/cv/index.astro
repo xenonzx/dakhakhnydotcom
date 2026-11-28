@@ -1,0 +1,90 @@
+---
+import PageHeading from "../../components/page-heading.astro";
+import Layout from "../../layouts/main.astro";
+import { CV_REQUEST_LIMITS, HONEYPOT_FIELD } from "../../lib/cv-request";
+import { SITE } from "../../site";
+
+const label = "block text-sm font-semibold text-neutral-800 dark:text-neutral-200";
+const optional = "font-normal text-neutral-500 dark:text-neutral-400";
+const input =
+  "block w-full px-3 py-2 mt-1 text-sm border rounded-lg bg-white border-neutral-300 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-100 dark:focus:ring-neutral-300";
+const alert =
+  "hidden px-4 py-3 mt-8 text-sm border rounded-lg border-red-300 bg-red-50 text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200";
+const link = "text-indigo-600 underline";
+---
+
+<Layout
+  title="Request my CV"
+  description="Request Ahmed El-Dakhakhny's CV. Leave your details and he'll email it to you."
+>
+  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
+    <PageHeading
+      title="Request my CV"
+      description="Leave your details and I'll email you my CV. I read each request myself and reply by email."
+    />
+
+    <p class={alert} role="alert" data-error="invalid">
+      Please add your name and a valid email address, then send the form again.
+    </p>
+    <p class={alert} role="alert" data-error="send">
+      Sorry, your request didn't go through. Please try again later, or reach
+      me on <a href={SITE.linkedin} target="_blank" class={link}>LinkedIn</a>.
+    </p>
+
+    <form id="cv-request" method="post" action="/api/cv-request" class="mt-8 space-y-5">
+      <div>
+        <label for="name" class={label}>Name</label>
+        <input id="name" name="name" type="text" required maxlength={CV_REQUEST_LIMITS.name} autocomplete="name" class={input} />
+      </div>
+      <div>
+        <label for="email" class={label}>Email</label>
+        <input id="email" name="email" type="email" required maxlength={CV_REQUEST_LIMITS.email} autocomplete="email" class={input} />
+      </div>
+      <div>
+        <label for="company" class={label}>Company <span class={optional}>(optional)</span></label>
+        <input id="company" name="company" type="text" maxlength={CV_REQUEST_LIMITS.company} autocomplete="organization" class={input} />
+      </div>
+      <div>
+        <label for="linkedin" class={label}>LinkedIn profile <span class={optional}>(optional)</span></label>
+        <input id="linkedin" name="linkedin" type="text" inputmode="url" maxlength={CV_REQUEST_LIMITS.linkedin} placeholder="https://www.linkedin.com/in/…" class={input} />
+      </div>
+      <div>
+        <label for="message" class={label}>Message <span class={optional}>(optional)</span></label>
+        <textarea id="message" name="message" rows="4" maxlength={CV_REQUEST_LIMITS.message} placeholder="The role you're hiring for, or anything else I should know." class={input}></textarea>
+      </div>
+
+      <!-- Hidden from people; bots that fill it are ignored. -->
+      <div class="absolute -left-[9999px]" aria-hidden="true">
+        <label for={HONEYPOT_FIELD}>Leave this empty</label>
+        <input id={HONEYPOT_FIELD} name={HONEYPOT_FIELD} type="text" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="inline-flex w-auto px-4 py-2 text-xs font-semibold duration-300 ease-out border rounded-full bg-neutral-900 dark:bg-white dark:text-neutral-900 text-neutral-100 hover:border-neutral-700 border-neutral-900 dark:hover:border-neutral-300 hover:bg-white dark:hover:bg-black dark:hover:text-white hover:text-neutral-900 disabled:opacity-60"
+        >
+          Send request
+        </button>
+        <p class="mt-4 text-xs text-neutral-500 dark:text-neutral-400">
+          I use these details only to reply to you.
+        </p>
+      </div>
+    </form>
+  </section>
+</Layout>
+
+<script>
+  // Show the error the endpoint redirected back with, if any.
+  const error = new URLSearchParams(window.location.search).get("error");
+  if (error) {
+    document.querySelector(`[data-error="${CSS.escape(error)}"]`)?.classList.remove("hidden");
+  }
+
+  // Avoid duplicate requests from double clicks.
+  const form = document.getElementById("cv-request");
+  const submit = form?.querySelector("button[type=submit]");
+  form?.addEventListener("submit", () => submit?.setAttribute("disabled", ""));
+  // Coming back with the browser's Back button restores the page as it was.
+  window.addEventListener("pageshow", () => submit?.removeAttribute("disabled"));
+</script>
