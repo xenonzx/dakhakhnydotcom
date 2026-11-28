@@ -10,7 +10,12 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://dakhakhny.com",
-	integrations: [tailwind(), mdx(), sitemap()],
+	integrations: [
+		tailwind(),
+		mdx(),
+		// The thank-you page after a CV request is not worth indexing.
+		sitemap({ filter: (page) => !page.endsWith("/cv/sent/") }),
+	],
 	adapter: cloudflare({
 		platformProxy: {
 			enabled: true,

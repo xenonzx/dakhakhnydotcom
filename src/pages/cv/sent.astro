@@ -1,0 +1,15 @@
+---
+import Button from "../../components/button.astro";
+import PageHeading from "../../components/page-heading.astro";
+import Layout from "../../layouts/main.astro";
+---
+
+<Layout title="CV request sent" noindex>
+  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
+    <PageHeading
+      title="Thanks, your request is in"
+      description="I'll reply by email with my CV."
+    />
+    <Button text="Back to the home page" link="/" />
+  </section>
+</Layout>
