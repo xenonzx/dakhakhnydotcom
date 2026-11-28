@@ -7,6 +7,12 @@
 		"directory": "./dist",
 		"binding": "ASSETS"
 	},
+	"send_email": [
+		{
+			"name": "CV_EMAIL",
+			"allowed_sender_addresses": ["cv-request@dakhakhny.com"]
+		}
+	],
 	"observability": {
 		"enabled": true
 	},
